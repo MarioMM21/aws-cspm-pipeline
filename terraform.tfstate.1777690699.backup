@@ -1,0 +1,1477 @@
+{
+  "version": 4,
+  "terraform_version": "1.14.8",
+  "serial": 43,
+  "lineage": "9717895a-6196-87de-5264-32db671db3d1",
+  "outputs": {
+    "cloudtrail_arn": {
+      "value": "arn:aws:cloudtrail:us-east-1:022784798454:trail/cspm-cloudtrail",
+      "type": "string"
+    },
+    "config_recorder_name": {
+      "value": "cspm-config-recorder",
+      "type": "string"
+    },
+    "lambda_remediation_arn": {
+      "value": "arn:aws:lambda:us-east-1:022784798454:function:cspm-remediate-s3-public-access",
+      "type": "string"
+    },
+    "lambda_report_arn": {
+      "value": "arn:aws:lambda:us-east-1:022784798454:function:cspm-compliance-report",
+      "type": "string"
+    },
+    "s3_bucket_arn": {
+      "value": "arn:aws:s3:::cspm-cloudtrail-logs-mm21",
+      "type": "string"
+    },
+    "s3_bucket_name": {
+      "value": "cspm-cloudtrail-logs-mm21",
+      "type": "string"
+    },
+    "security_hub_id": {
+      "value": "022784798454",
+      "type": "string"
+    },
+    "sns_topic_arn": {
+      "value": "arn:aws:sns:us-east-1:022784798454:cspm-security-alerts",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "data",
+      "type": "archive_file",
+      "name": "compliance_report",
+      "provider": "provider[\"registry.terraform.io/hashicorp/archive\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "exclude_symlink_directories": null,
+            "excludes": null,
+            "id": "ed81ba6462ebc36feec408f530132d40ef741c50",
+            "output_base64sha256": "+wl1VwGixk+Pw9a1sXSOBsn6IM/9ryKDbqI90g1EXfs=",
+            "output_base64sha512": "SWsGdUAgyrZ7zWMsVT1HZgIcXMBzLsefoX6gQ2YIpdWB/W1G3nca4iCjOjAhwxjCo00MpgcyiL/FuQ5FcZ0rjA==",
+            "output_file_mode": null,
+            "output_md5": "f95459902252ba26d776041726b1cfc0",
+            "output_path": "./lambda/compliance_report.zip",
+            "output_sha": "ed81ba6462ebc36feec408f530132d40ef741c50",
+            "output_sha256": "fb09755701a2c64f8fc3d6b5b1748e06c9fa20cffdaf22836ea23dd20d445dfb",
+            "output_sha512": "496b06754020cab67bcd632c553d4766021c5cc0732ec79fa17ea0436608a5d581fd6d46de771ae220a33a3021c318c2a34d0ca6073288bfc5b90e45719d2b8c",
+            "output_size": 2257,
+            "source": [],
+            "source_content": null,
+            "source_content_filename": null,
+            "source_dir": null,
+            "source_file": "./lambda/compliance_report.py",
+            "type": "zip"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "archive_file",
+      "name": "remediate_s3",
+      "provider": "provider[\"registry.terraform.io/hashicorp/archive\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "exclude_symlink_directories": null,
+            "excludes": null,
+            "id": "d212d19c2b7cebeb7c2671eb579053425ee9b73a",
+            "output_base64sha256": "EezVqHWqG+fS72cwLyTBdH+osVHhkhufpT4YBII5I/c=",
+            "output_base64sha512": "Od1OZV415fzUhurXN9/ERgjHD+b+oxy/+fKuSu79MqdD+cyL90KaCDAzV0oQjMAgTHgnjjB6uziW1PHpfAc73A==",
+            "output_file_mode": null,
+            "output_md5": "4299914543f19cb7e691a4d31333232e",
+            "output_path": "./lambda/remediate_s3.zip",
+            "output_sha": "d212d19c2b7cebeb7c2671eb579053425ee9b73a",
+            "output_sha256": "11ecd5a875aa1be7d2ef67302f24c1747fa8b151e1921b9fa53e1804823923f7",
+            "output_sha512": "39dd4e655e35e5fcd486ead737dfc44608c70fe6fea31cbff9f2ae4aeefd32a743f9cc8bf7429a083033574a108cc0204c78278e307abb3896d4f1e97c073bdc",
+            "output_size": 1320,
+            "source": [],
+            "source_content": null,
+            "source_content_filename": null,
+            "source_dir": null,
+            "source_file": "./lambda/remediate_s3.py",
+            "type": "zip"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_cloudtrail",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "advanced_event_selector": [],
+            "arn": "arn:aws:cloudtrail:us-east-1:022784798454:trail/cspm-cloudtrail",
+            "cloud_watch_logs_group_arn": "",
+            "cloud_watch_logs_role_arn": "",
+            "enable_log_file_validation": true,
+            "enable_logging": true,
+            "event_selector": [],
+            "home_region": "us-east-1",
+            "id": "arn:aws:cloudtrail:us-east-1:022784798454:trail/cspm-cloudtrail",
+            "include_global_service_events": true,
+            "insight_selector": [],
+            "is_multi_region_trail": true,
+            "is_organization_trail": false,
+            "kms_key_id": "",
+            "name": "cspm-cloudtrail",
+            "s3_bucket_name": "cspm-cloudtrail-logs-mm21",
+            "s3_key_prefix": "",
+            "sns_topic_arn": "",
+            "sns_topic_name": "",
+            "tags": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM CloudTrail",
+              "Project": "cspm-pipeline"
+            },
+            "tags_all": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM CloudTrail",
+              "Project": "cspm-pipeline"
+            }
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ==",
+          "dependencies": [
+            "aws_s3_bucket.cloudtrail_logs",
+            "aws_s3_bucket_policy.cloudtrail_logs"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_cloudwatch_event_rule",
+      "name": "daily_compliance",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:events:us-east-1:022784798454:rule/cspm-daily-compliance-report",
+            "description": "Triggers daily compliance report generation",
+            "event_bus_name": "default",
+            "event_pattern": null,
+            "force_destroy": false,
+            "id": "cspm-daily-compliance-report",
+            "is_enabled": true,
+            "name": "cspm-daily-compliance-report",
+            "name_prefix": "",
+            "role_arn": "",
+            "schedule_expression": "cron(0 8 * * ? *)",
+            "state": "ENABLED",
+            "tags": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM Daily Report Trigger",
+              "Project": "cspm-pipeline"
+            },
+            "tags_all": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM Daily Report Trigger",
+              "Project": "cspm-pipeline"
+            }
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_cloudwatch_event_target",
+      "name": "daily_compliance",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "appsync_target": [],
+            "arn": "arn:aws:lambda:us-east-1:022784798454:function:cspm-compliance-report",
+            "batch_target": [],
+            "dead_letter_config": [],
+            "ecs_target": [],
+            "event_bus_name": "default",
+            "force_destroy": false,
+            "http_target": [],
+            "id": "cspm-daily-compliance-report-cspm-compliance-report",
+            "input": "",
+            "input_path": "",
+            "input_transformer": [],
+            "kinesis_target": [],
+            "redshift_target": [],
+            "retry_policy": [],
+            "role_arn": "",
+            "rule": "cspm-daily-compliance-report",
+            "run_command_targets": [],
+            "sagemaker_pipeline_target": [],
+            "sqs_target": [],
+            "target_id": "cspm-compliance-report"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ==",
+          "dependencies": [
+            "aws_cloudwatch_event_rule.daily_compliance",
+            "aws_iam_role.lambda_role",
+            "aws_lambda_function.compliance_report",
+            "aws_sns_topic.security_alerts",
+            "data.archive_file.compliance_report"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_cloudwatch_log_group",
+      "name": "security_events",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:logs:us-east-1:022784798454:log-group:/cspm/security-events",
+            "id": "/cspm/security-events",
+            "kms_key_id": "",
+            "log_group_class": "STANDARD",
+            "name": "/cspm/security-events",
+            "name_prefix": "",
+            "retention_in_days": 90,
+            "skip_destroy": false,
+            "tags": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM Security Events",
+              "Project": "cspm-pipeline"
+            },
+            "tags_all": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM Security Events",
+              "Project": "cspm-pipeline"
+            }
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_cloudwatch_metric_alarm",
+      "name": "config_compliance",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "actions_enabled": true,
+            "alarm_actions": [
+              "arn:aws:sns:us-east-1:022784798454:cspm-security-alerts"
+            ],
+            "alarm_description": "Triggers when AWS Config detects non-compliant resources",
+            "alarm_name": "cspm-config-non-compliant",
+            "arn": "arn:aws:cloudwatch:us-east-1:022784798454:alarm:cspm-config-non-compliant",
+            "comparison_operator": "GreaterThanThreshold",
+            "datapoints_to_alarm": 0,
+            "dimensions": {},
+            "evaluate_low_sample_count_percentiles": "",
+            "evaluation_periods": 1,
+            "extended_statistic": "",
+            "id": "cspm-config-non-compliant",
+            "insufficient_data_actions": [],
+            "metric_name": "NonCompliantRules",
+            "metric_query": [],
+            "namespace": "AWS/Config",
+            "ok_actions": [
+              "arn:aws:sns:us-east-1:022784798454:cspm-security-alerts"
+            ],
+            "period": 300,
+            "statistic": "Sum",
+            "tags": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM Config Compliance Alarm",
+              "Project": "cspm-pipeline"
+            },
+            "tags_all": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM Config Compliance Alarm",
+              "Project": "cspm-pipeline"
+            },
+            "threshold": 0,
+            "threshold_metric_id": "",
+            "treat_missing_data": "missing",
+            "unit": ""
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ==",
+          "dependencies": [
+            "aws_sns_topic.security_alerts"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_config_config_rule",
+      "name": "cloudtrail_enabled",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:config:us-east-1:022784798454:config-rule/config-rule-ktcq5y",
+            "description": "CIS 3.1 - Checks CloudTrail is enabled in all regions",
+            "evaluation_mode": [
+              {
+                "mode": "DETECTIVE"
+              }
+            ],
+            "id": "cloudtrail-enabled",
+            "input_parameters": "",
+            "maximum_execution_frequency": "",
+            "name": "cloudtrail-enabled",
+            "rule_id": "config-rule-ktcq5y",
+            "scope": [],
+            "source": [
+              {
+                "custom_policy_details": [],
+                "owner": "AWS",
+                "source_detail": [],
+                "source_identifier": "CLOUD_TRAIL_ENABLED"
+              }
+            ],
+            "tags": {
+              "CIS_Control": "3.1",
+              "Environment": "cspm-lab",
+              "Project": "cspm-pipeline"
+            },
+            "tags_all": {
+              "CIS_Control": "3.1",
+              "Environment": "cspm-lab",
+              "Project": "cspm-pipeline"
+            }
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_config_configuration_recorder.main",
+            "aws_config_configuration_recorder_status.main",
+            "aws_config_delivery_channel.main",
+            "aws_iam_role.config_role",
+            "aws_s3_bucket.cloudtrail_logs"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_config_config_rule",
+      "name": "iam_root_access_key",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:config:us-east-1:022784798454:config-rule/config-rule-ulzrmq",
+            "description": "CIS 1.4 - Checks root account does not have active access keys",
+            "evaluation_mode": [
+              {
+                "mode": "DETECTIVE"
+              }
+            ],
+            "id": "iam-root-access-key-check",
+            "input_parameters": "",
+            "maximum_execution_frequency": "",
+            "name": "iam-root-access-key-check",
+            "rule_id": "config-rule-ulzrmq",
+            "scope": [],
+            "source": [
+              {
+                "custom_policy_details": [],
+                "owner": "AWS",
+                "source_detail": [],
+                "source_identifier": "IAM_ROOT_ACCESS_KEY_CHECK"
+              }
+            ],
+            "tags": {
+              "CIS_Control": "1.4",
+              "Environment": "cspm-lab",
+              "Project": "cspm-pipeline"
+            },
+            "tags_all": {
+              "CIS_Control": "1.4",
+              "Environment": "cspm-lab",
+              "Project": "cspm-pipeline"
+            }
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_config_configuration_recorder.main",
+            "aws_config_configuration_recorder_status.main",
+            "aws_config_delivery_channel.main",
+            "aws_iam_role.config_role",
+            "aws_s3_bucket.cloudtrail_logs"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_config_config_rule",
+      "name": "mfa_enabled_for_iam_console",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:config:us-east-1:022784798454:config-rule/config-rule-awp0co",
+            "description": "CIS 1.10 - Checks MFA is enabled for all IAM users with console access",
+            "evaluation_mode": [
+              {
+                "mode": "DETECTIVE"
+              }
+            ],
+            "id": "mfa-enabled-for-iam-console-access",
+            "input_parameters": "",
+            "maximum_execution_frequency": "",
+            "name": "mfa-enabled-for-iam-console-access",
+            "rule_id": "config-rule-awp0co",
+            "scope": [],
+            "source": [
+              {
+                "custom_policy_details": [],
+                "owner": "AWS",
+                "source_detail": [],
+                "source_identifier": "MFA_ENABLED_FOR_IAM_CONSOLE_ACCESS"
+              }
+            ],
+            "tags": {
+              "CIS_Control": "1.10",
+              "Environment": "cspm-lab",
+              "Project": "cspm-pipeline"
+            },
+            "tags_all": {
+              "CIS_Control": "1.10",
+              "Environment": "cspm-lab",
+              "Project": "cspm-pipeline"
+            }
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_config_configuration_recorder.main",
+            "aws_config_configuration_recorder_status.main",
+            "aws_config_delivery_channel.main",
+            "aws_iam_role.config_role",
+            "aws_s3_bucket.cloudtrail_logs"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_config_config_rule",
+      "name": "s3_public_read_prohibited",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:config:us-east-1:022784798454:config-rule/config-rule-wirosa",
+            "description": "CIS 2.1.1 - Checks S3 buckets do not allow public read access",
+            "evaluation_mode": [
+              {
+                "mode": "DETECTIVE"
+              }
+            ],
+            "id": "s3-bucket-public-read-prohibited",
+            "input_parameters": "",
+            "maximum_execution_frequency": "",
+            "name": "s3-bucket-public-read-prohibited",
+            "rule_id": "config-rule-wirosa",
+            "scope": [],
+            "source": [
+              {
+                "custom_policy_details": [],
+                "owner": "AWS",
+                "source_detail": [],
+                "source_identifier": "S3_BUCKET_PUBLIC_READ_PROHIBITED"
+              }
+            ],
+            "tags": {
+              "CIS_Control": "2.1.1",
+              "Environment": "cspm-lab",
+              "Project": "cspm-pipeline"
+            },
+            "tags_all": {
+              "CIS_Control": "2.1.1",
+              "Environment": "cspm-lab",
+              "Project": "cspm-pipeline"
+            }
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_config_configuration_recorder.main",
+            "aws_config_configuration_recorder_status.main",
+            "aws_config_delivery_channel.main",
+            "aws_iam_role.config_role",
+            "aws_s3_bucket.cloudtrail_logs"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_config_config_rule",
+      "name": "s3_public_write_prohibited",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:config:us-east-1:022784798454:config-rule/config-rule-bnrvby",
+            "description": "CIS 2.1.2 - Checks S3 buckets do not allow public write access",
+            "evaluation_mode": [
+              {
+                "mode": "DETECTIVE"
+              }
+            ],
+            "id": "s3-bucket-public-write-prohibited",
+            "input_parameters": "",
+            "maximum_execution_frequency": "",
+            "name": "s3-bucket-public-write-prohibited",
+            "rule_id": "config-rule-bnrvby",
+            "scope": [],
+            "source": [
+              {
+                "custom_policy_details": [],
+                "owner": "AWS",
+                "source_detail": [],
+                "source_identifier": "S3_BUCKET_PUBLIC_WRITE_PROHIBITED"
+              }
+            ],
+            "tags": {
+              "CIS_Control": "2.1.2",
+              "Environment": "cspm-lab",
+              "Project": "cspm-pipeline"
+            },
+            "tags_all": {
+              "CIS_Control": "2.1.2",
+              "Environment": "cspm-lab",
+              "Project": "cspm-pipeline"
+            }
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_config_configuration_recorder.main",
+            "aws_config_configuration_recorder_status.main",
+            "aws_config_delivery_channel.main",
+            "aws_iam_role.config_role",
+            "aws_s3_bucket.cloudtrail_logs"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_config_configuration_recorder",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "cspm-config-recorder",
+            "name": "cspm-config-recorder",
+            "recording_group": [
+              {
+                "all_supported": true,
+                "exclusion_by_resource_types": [
+                  {
+                    "resource_types": []
+                  }
+                ],
+                "include_global_resource_types": true,
+                "recording_strategy": [
+                  {
+                    "use_only": "ALL_SUPPORTED_RESOURCE_TYPES"
+                  }
+                ],
+                "resource_types": []
+              }
+            ],
+            "recording_mode": [
+              {
+                "recording_frequency": "CONTINUOUS",
+                "recording_mode_override": []
+              }
+            ],
+            "role_arn": "arn:aws:iam::022784798454:role/cspm-config-role"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.config_role"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_config_configuration_recorder_status",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "cspm-config-recorder",
+            "is_enabled": true,
+            "name": "cspm-config-recorder"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_config_configuration_recorder.main",
+            "aws_config_delivery_channel.main",
+            "aws_iam_role.config_role",
+            "aws_s3_bucket.cloudtrail_logs"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_config_delivery_channel",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "cspm-config-delivery",
+            "name": "cspm-config-delivery",
+            "s3_bucket_name": "cspm-cloudtrail-logs-mm21",
+            "s3_key_prefix": "",
+            "s3_kms_key_arn": "",
+            "snapshot_delivery_properties": [],
+            "sns_topic_arn": ""
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_config_configuration_recorder.main",
+            "aws_iam_role.config_role",
+            "aws_s3_bucket.cloudtrail_logs"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "config_role",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::022784798454:role/cspm-config-role",
+            "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"config.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}",
+            "create_date": "2026-05-02T02:30:55Z",
+            "description": "",
+            "force_detach_policies": false,
+            "id": "cspm-config-role",
+            "inline_policy": [
+              {
+                "name": "cspm-config-s3-policy",
+                "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"s3:PutObject\",\"s3:GetBucketAcl\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:s3:::cspm-cloudtrail-logs-mm21\",\"arn:aws:s3:::cspm-cloudtrail-logs-mm21/*\"]}]}"
+              }
+            ],
+            "managed_policy_arns": [
+              "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole"
+            ],
+            "max_session_duration": 3600,
+            "name": "cspm-config-role",
+            "name_prefix": "",
+            "path": "/",
+            "permissions_boundary": "",
+            "tags": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM Config Role",
+              "Project": "cspm-pipeline"
+            },
+            "tags_all": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM Config Role",
+              "Project": "cspm-pipeline"
+            },
+            "unique_id": "AROAQKTQUN33CVOMZJKLD"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role",
+      "name": "lambda_role",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:iam::022784798454:role/cspm-lambda-remediation-role",
+            "assume_role_policy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"lambda.amazonaws.com\"}}],\"Version\":\"2012-10-17\"}",
+            "create_date": "2026-05-02T02:30:55Z",
+            "description": "",
+            "force_detach_policies": false,
+            "id": "cspm-lambda-remediation-role",
+            "inline_policy": [
+              {
+                "name": "cspm-lambda-policy",
+                "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"logs:CreateLogGroup\",\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:logs:*:*:*\"},{\"Action\":[\"s3:PutBucketPublicAccessBlock\",\"s3:GetBucketPublicAccessBlock\",\"s3:ListAllMyBuckets\",\"s3:GetBucketLocation\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"sns:Publish\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:sns:us-east-1:022784798454:cspm-security-alerts\"},{\"Action\":[\"config:GetComplianceDetailsByConfigRule\",\"config:GetComplianceDetailsByResource\",\"config:DescribeConfigRules\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"securityhub:GetFindings\",\"securityhub:UpdateFindings\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"iam:GetAccountSummary\",\"iam:ListUsers\",\"iam:ListMFADevices\"],\"Effect\":\"Allow\",\"Resource\":\"*\"}]}"
+              }
+            ],
+            "managed_policy_arns": [],
+            "max_session_duration": 3600,
+            "name": "cspm-lambda-remediation-role",
+            "name_prefix": "",
+            "path": "/",
+            "permissions_boundary": "",
+            "tags": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM Lambda Role",
+              "Project": "cspm-pipeline"
+            },
+            "tags_all": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM Lambda Role",
+              "Project": "cspm-pipeline"
+            },
+            "unique_id": "AROAQKTQUN33PYLRSUY76"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role_policy",
+      "name": "config_s3_policy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "cspm-config-role:cspm-config-s3-policy",
+            "name": "cspm-config-s3-policy",
+            "name_prefix": "",
+            "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"s3:PutObject\",\"s3:GetBucketAcl\"],\"Effect\":\"Allow\",\"Resource\":[\"arn:aws:s3:::cspm-cloudtrail-logs-mm21\",\"arn:aws:s3:::cspm-cloudtrail-logs-mm21/*\"]}]}",
+            "role": "cspm-config-role"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.config_role"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role_policy",
+      "name": "lambda_policy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "cspm-lambda-remediation-role:cspm-lambda-policy",
+            "name": "cspm-lambda-policy",
+            "name_prefix": "",
+            "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"logs:CreateLogGroup\",\"logs:CreateLogStream\",\"logs:PutLogEvents\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:logs:*:*:*\"},{\"Action\":[\"s3:PutBucketPublicAccessBlock\",\"s3:GetBucketPublicAccessBlock\",\"s3:ListAllMyBuckets\",\"s3:GetBucketLocation\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"sns:Publish\"],\"Effect\":\"Allow\",\"Resource\":\"arn:aws:sns:us-east-1:022784798454:cspm-security-alerts\"},{\"Action\":[\"config:GetComplianceDetailsByConfigRule\",\"config:GetComplianceDetailsByResource\",\"config:DescribeConfigRules\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"securityhub:GetFindings\",\"securityhub:UpdateFindings\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"iam:GetAccountSummary\",\"iam:ListUsers\",\"iam:ListMFADevices\"],\"Effect\":\"Allow\",\"Resource\":\"*\"}]}",
+            "role": "cspm-lambda-remediation-role"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.lambda_role",
+            "aws_sns_topic.security_alerts"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_iam_role_policy_attachment",
+      "name": "config_role_policy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "cspm-config-role-20260502023058036400000001",
+            "policy_arn": "arn:aws:iam::aws:policy/service-role/AWS_ConfigRole",
+            "role": "cspm-config-role"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.config_role"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_lambda_function",
+      "name": "compliance_report",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "architectures": [
+              "x86_64"
+            ],
+            "arn": "arn:aws:lambda:us-east-1:022784798454:function:cspm-compliance-report",
+            "code_sha256": "+wl1VwGixk+Pw9a1sXSOBsn6IM/9ryKDbqI90g1EXfs=",
+            "code_signing_config_arn": "",
+            "dead_letter_config": [],
+            "description": "",
+            "environment": [
+              {
+                "variables": {
+                  "ENVIRONMENT": "cspm-lab",
+                  "SNS_TOPIC_ARN": "arn:aws:sns:us-east-1:022784798454:cspm-security-alerts"
+                }
+              }
+            ],
+            "ephemeral_storage": [
+              {
+                "size": 512
+              }
+            ],
+            "file_system_config": [],
+            "filename": "./lambda/compliance_report.zip",
+            "function_name": "cspm-compliance-report",
+            "handler": "compliance_report.lambda_handler",
+            "id": "cspm-compliance-report",
+            "image_config": [],
+            "image_uri": "",
+            "invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:022784798454:function:cspm-compliance-report/invocations",
+            "kms_key_arn": "",
+            "last_modified": "2026-05-02T02:31:05.961+0000",
+            "layers": [],
+            "logging_config": [
+              {
+                "application_log_level": "",
+                "log_format": "Text",
+                "log_group": "/aws/lambda/cspm-compliance-report",
+                "system_log_level": ""
+              }
+            ],
+            "memory_size": 128,
+            "package_type": "Zip",
+            "publish": false,
+            "qualified_arn": "arn:aws:lambda:us-east-1:022784798454:function:cspm-compliance-report:$LATEST",
+            "qualified_invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:022784798454:function:cspm-compliance-report:$LATEST/invocations",
+            "replace_security_groups_on_destroy": null,
+            "replacement_security_group_ids": null,
+            "reserved_concurrent_executions": -1,
+            "role": "arn:aws:iam::022784798454:role/cspm-lambda-remediation-role",
+            "runtime": "python3.11",
+            "s3_bucket": null,
+            "s3_key": null,
+            "s3_object_version": null,
+            "signing_job_arn": "",
+            "signing_profile_version_arn": "",
+            "skip_destroy": false,
+            "snap_start": [],
+            "source_code_hash": "+wl1VwGixk+Pw9a1sXSOBsn6IM/9ryKDbqI90g1EXfs=",
+            "source_code_size": 2257,
+            "tags": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM Compliance Report",
+              "Project": "cspm-pipeline"
+            },
+            "tags_all": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM Compliance Report",
+              "Project": "cspm-pipeline"
+            },
+            "timeout": 120,
+            "timeouts": null,
+            "tracing_config": [
+              {
+                "mode": "PassThrough"
+              }
+            ],
+            "version": "$LATEST",
+            "vpc_config": []
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_iam_role.lambda_role",
+            "aws_sns_topic.security_alerts",
+            "data.archive_file.compliance_report"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_lambda_function",
+      "name": "remediate_s3",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "architectures": [
+              "x86_64"
+            ],
+            "arn": "arn:aws:lambda:us-east-1:022784798454:function:cspm-remediate-s3-public-access",
+            "code_sha256": "EezVqHWqG+fS72cwLyTBdH+osVHhkhufpT4YBII5I/c=",
+            "code_signing_config_arn": "",
+            "dead_letter_config": [],
+            "description": "",
+            "environment": [
+              {
+                "variables": {
+                  "ENVIRONMENT": "cspm-lab",
+                  "SNS_TOPIC_ARN": "arn:aws:sns:us-east-1:022784798454:cspm-security-alerts"
+                }
+              }
+            ],
+            "ephemeral_storage": [
+              {
+                "size": 512
+              }
+            ],
+            "file_system_config": [],
+            "filename": "./lambda/remediate_s3.zip",
+            "function_name": "cspm-remediate-s3-public-access",
+            "handler": "remediate_s3.lambda_handler",
+            "id": "cspm-remediate-s3-public-access",
+            "image_config": [],
+            "image_uri": "",
+            "invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:022784798454:function:cspm-remediate-s3-public-access/invocations",
+            "kms_key_arn": "",
+            "last_modified": "2026-05-02T02:31:12.295+0000",
+            "layers": [],
+            "logging_config": [
+              {
+                "application_log_level": "",
+                "log_format": "Text",
+                "log_group": "/aws/lambda/cspm-remediate-s3-public-access",
+                "system_log_level": ""
+              }
+            ],
+            "memory_size": 128,
+            "package_type": "Zip",
+            "publish": false,
+            "qualified_arn": "arn:aws:lambda:us-east-1:022784798454:function:cspm-remediate-s3-public-access:$LATEST",
+            "qualified_invoke_arn": "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:022784798454:function:cspm-remediate-s3-public-access:$LATEST/invocations",
+            "replace_security_groups_on_destroy": null,
+            "replacement_security_group_ids": null,
+            "reserved_concurrent_executions": -1,
+            "role": "arn:aws:iam::022784798454:role/cspm-lambda-remediation-role",
+            "runtime": "python3.11",
+            "s3_bucket": null,
+            "s3_key": null,
+            "s3_object_version": null,
+            "signing_job_arn": "",
+            "signing_profile_version_arn": "",
+            "skip_destroy": false,
+            "snap_start": [],
+            "source_code_hash": "EezVqHWqG+fS72cwLyTBdH+osVHhkhufpT4YBII5I/c=",
+            "source_code_size": 1320,
+            "tags": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM S3 Auto-Remediation",
+              "Project": "cspm-pipeline"
+            },
+            "tags_all": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM S3 Auto-Remediation",
+              "Project": "cspm-pipeline"
+            },
+            "timeout": 60,
+            "timeouts": null,
+            "tracing_config": [
+              {
+                "mode": "PassThrough"
+              }
+            ],
+            "version": "$LATEST",
+            "vpc_config": []
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "aws_iam_role.lambda_role",
+            "aws_sns_topic.security_alerts",
+            "data.archive_file.remediate_s3"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_lambda_permission",
+      "name": "allow_config_s3",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "action": "lambda:InvokeFunction",
+            "event_source_token": null,
+            "function_name": "cspm-remediate-s3-public-access",
+            "function_url_auth_type": null,
+            "id": "AllowConfigInvoke",
+            "principal": "config.amazonaws.com",
+            "principal_org_id": null,
+            "qualifier": "",
+            "source_account": null,
+            "source_arn": null,
+            "statement_id": "AllowConfigInvoke",
+            "statement_id_prefix": ""
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_iam_role.lambda_role",
+            "aws_lambda_function.remediate_s3",
+            "aws_sns_topic.security_alerts",
+            "data.archive_file.remediate_s3"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_lambda_permission",
+      "name": "allow_eventbridge",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "action": "lambda:InvokeFunction",
+            "event_source_token": null,
+            "function_name": "cspm-compliance-report",
+            "function_url_auth_type": null,
+            "id": "AllowEventBridgeInvoke",
+            "principal": "events.amazonaws.com",
+            "principal_org_id": null,
+            "qualifier": "",
+            "source_account": null,
+            "source_arn": "arn:aws:events:us-east-1:022784798454:rule/cspm-daily-compliance-report",
+            "statement_id": "AllowEventBridgeInvoke",
+            "statement_id_prefix": ""
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_cloudwatch_event_rule.daily_compliance",
+            "aws_iam_role.lambda_role",
+            "aws_lambda_function.compliance_report",
+            "aws_sns_topic.security_alerts",
+            "data.archive_file.compliance_report"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_s3_bucket",
+      "name": "cloudtrail_logs",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "acceleration_status": "",
+            "acl": null,
+            "arn": "arn:aws:s3:::cspm-cloudtrail-logs-mm21",
+            "bucket": "cspm-cloudtrail-logs-mm21",
+            "bucket_domain_name": "cspm-cloudtrail-logs-mm21.s3.amazonaws.com",
+            "bucket_prefix": "",
+            "bucket_regional_domain_name": "cspm-cloudtrail-logs-mm21.s3.us-east-1.amazonaws.com",
+            "cors_rule": [],
+            "force_destroy": true,
+            "grant": [
+              {
+                "id": "111e94f669df52c8ae66806d23981a0c3a1780779c129229b56af4ba77b66d73",
+                "permissions": [
+                  "FULL_CONTROL"
+                ],
+                "type": "CanonicalUser",
+                "uri": ""
+              }
+            ],
+            "hosted_zone_id": "Z3AQBSTGFYJSTF",
+            "id": "cspm-cloudtrail-logs-mm21",
+            "lifecycle_rule": [],
+            "logging": [],
+            "object_lock_configuration": [],
+            "object_lock_enabled": false,
+            "policy": "{\"Statement\":[{\"Action\":\"s3:GetBucketAcl\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudtrail.amazonaws.com\"},\"Resource\":\"arn:aws:s3:::cspm-cloudtrail-logs-mm21\",\"Sid\":\"AWSCloudTrailAclCheck\"},{\"Action\":\"s3:PutObject\",\"Condition\":{\"StringEquals\":{\"s3:x-amz-acl\":\"bucket-owner-full-control\"}},\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudtrail.amazonaws.com\"},\"Resource\":\"arn:aws:s3:::cspm-cloudtrail-logs-mm21/AWSLogs/022784798454/*\",\"Sid\":\"AWSCloudTrailWrite\"}],\"Version\":\"2012-10-17\"}",
+            "region": "us-east-1",
+            "replication_configuration": [],
+            "request_payer": "BucketOwner",
+            "server_side_encryption_configuration": [
+              {
+                "rule": [
+                  {
+                    "apply_server_side_encryption_by_default": [
+                      {
+                        "kms_master_key_id": "",
+                        "sse_algorithm": "AES256"
+                      }
+                    ],
+                    "bucket_key_enabled": false
+                  }
+                ]
+              }
+            ],
+            "tags": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM CloudTrail Logs",
+              "Project": "cspm-pipeline"
+            },
+            "tags_all": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM CloudTrail Logs",
+              "Project": "cspm-pipeline"
+            },
+            "timeouts": null,
+            "versioning": [
+              {
+                "enabled": true,
+                "mfa_delete": false
+              }
+            ],
+            "website": [],
+            "website_domain": null,
+            "website_endpoint": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInJlYWQiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_s3_bucket_policy",
+      "name": "cloudtrail_logs",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "bucket": "cspm-cloudtrail-logs-mm21",
+            "id": "cspm-cloudtrail-logs-mm21",
+            "policy": "{\"Statement\":[{\"Action\":\"s3:GetBucketAcl\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudtrail.amazonaws.com\"},\"Resource\":\"arn:aws:s3:::cspm-cloudtrail-logs-mm21\",\"Sid\":\"AWSCloudTrailAclCheck\"},{\"Action\":\"s3:PutObject\",\"Condition\":{\"StringEquals\":{\"s3:x-amz-acl\":\"bucket-owner-full-control\"}},\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"cloudtrail.amazonaws.com\"},\"Resource\":\"arn:aws:s3:::cspm-cloudtrail-logs-mm21/AWSLogs/022784798454/*\",\"Sid\":\"AWSCloudTrailWrite\"}],\"Version\":\"2012-10-17\"}"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_s3_bucket.cloudtrail_logs"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_s3_bucket_public_access_block",
+      "name": "cloudtrail_logs",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "block_public_acls": true,
+            "block_public_policy": true,
+            "bucket": "cspm-cloudtrail-logs-mm21",
+            "id": "cspm-cloudtrail-logs-mm21",
+            "ignore_public_acls": true,
+            "restrict_public_buckets": true
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_s3_bucket.cloudtrail_logs"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_s3_bucket_server_side_encryption_configuration",
+      "name": "cloudtrail_logs",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "bucket": "cspm-cloudtrail-logs-mm21",
+            "expected_bucket_owner": "",
+            "id": "cspm-cloudtrail-logs-mm21",
+            "rule": [
+              {
+                "apply_server_side_encryption_by_default": [
+                  {
+                    "kms_master_key_id": "",
+                    "sse_algorithm": "AES256"
+                  }
+                ],
+                "bucket_key_enabled": false
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_s3_bucket.cloudtrail_logs"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_s3_bucket_versioning",
+      "name": "cloudtrail_logs",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "bucket": "cspm-cloudtrail-logs-mm21",
+            "expected_bucket_owner": "",
+            "id": "cspm-cloudtrail-logs-mm21",
+            "mfa": null,
+            "versioning_configuration": [
+              {
+                "mfa_delete": "",
+                "status": "Enabled"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_s3_bucket.cloudtrail_logs"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_securityhub_account",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:securityhub:us-east-1:022784798454:hub/default",
+            "auto_enable_controls": true,
+            "control_finding_generator": "SECURITY_CONTROL",
+            "enable_default_standards": true,
+            "id": "022784798454"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_securityhub_standards_subscription",
+      "name": "aws_foundational",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "status": "tainted",
+          "schema_version": 0,
+          "attributes": {
+            "id": "arn:aws:securityhub:us-east-1:022784798454:subscription/aws-foundational-security-best-practices/v/1.0.0",
+            "standards_arn": "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAsImRlbGV0ZSI6MTgwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "aws_securityhub_account.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_securityhub_standards_subscription",
+      "name": "cis",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "status": "tainted",
+          "schema_version": 0,
+          "attributes": {
+            "id": "arn:aws:securityhub:us-east-1:022784798454:subscription/cis-aws-foundations-benchmark/v/1.4.0",
+            "standards_arn": "arn:aws:securityhub:us-east-1::standards/cis-aws-foundations-benchmark/v/1.4.0",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAsImRlbGV0ZSI6MTgwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "aws_securityhub_account.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_sns_topic",
+      "name": "security_alerts",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "application_failure_feedback_role_arn": "",
+            "application_success_feedback_role_arn": "",
+            "application_success_feedback_sample_rate": 0,
+            "archive_policy": "",
+            "arn": "arn:aws:sns:us-east-1:022784798454:cspm-security-alerts",
+            "beginning_archive_time": "",
+            "content_based_deduplication": false,
+            "delivery_policy": "",
+            "display_name": "",
+            "fifo_throughput_scope": "",
+            "fifo_topic": false,
+            "firehose_failure_feedback_role_arn": "",
+            "firehose_success_feedback_role_arn": "",
+            "firehose_success_feedback_sample_rate": 0,
+            "http_failure_feedback_role_arn": "",
+            "http_success_feedback_role_arn": "",
+            "http_success_feedback_sample_rate": 0,
+            "id": "arn:aws:sns:us-east-1:022784798454:cspm-security-alerts",
+            "kms_master_key_id": "",
+            "lambda_failure_feedback_role_arn": "",
+            "lambda_success_feedback_role_arn": "",
+            "lambda_success_feedback_sample_rate": 0,
+            "name": "cspm-security-alerts",
+            "name_prefix": "",
+            "owner": "022784798454",
+            "policy": "{\"Id\":\"__default_policy_ID\",\"Statement\":[{\"Action\":[\"SNS:GetTopicAttributes\",\"SNS:SetTopicAttributes\",\"SNS:AddPermission\",\"SNS:RemovePermission\",\"SNS:DeleteTopic\",\"SNS:Subscribe\",\"SNS:ListSubscriptionsByTopic\",\"SNS:Publish\"],\"Condition\":{\"StringEquals\":{\"AWS:SourceOwner\":\"022784798454\"}},\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Resource\":\"arn:aws:sns:us-east-1:022784798454:cspm-security-alerts\",\"Sid\":\"__default_statement_ID\"}],\"Version\":\"2008-10-17\"}",
+            "signature_version": 0,
+            "sqs_failure_feedback_role_arn": "",
+            "sqs_success_feedback_role_arn": "",
+            "sqs_success_feedback_sample_rate": 0,
+            "tags": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM Security Alerts",
+              "Project": "cspm-pipeline"
+            },
+            "tags_all": {
+              "Environment": "cspm-lab",
+              "Name": "CSPM Security Alerts",
+              "Project": "cspm-pipeline"
+            },
+            "tracing_config": ""
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_sns_topic_subscription",
+      "name": "security_alerts_email",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:sns:us-east-1:022784798454:cspm-security-alerts:7852e0dd-25cb-4285-97a7-81e3c73b92ea",
+            "confirmation_timeout_in_minutes": 1,
+            "confirmation_was_authenticated": false,
+            "delivery_policy": "",
+            "endpoint": "Mmyles21@gmail.com",
+            "endpoint_auto_confirms": false,
+            "filter_policy": "",
+            "filter_policy_scope": "",
+            "id": "arn:aws:sns:us-east-1:022784798454:cspm-security-alerts:7852e0dd-25cb-4285-97a7-81e3c73b92ea",
+            "owner_id": "022784798454",
+            "pending_confirmation": false,
+            "protocol": "email",
+            "raw_message_delivery": false,
+            "redrive_policy": "",
+            "replay_policy": "",
+            "subscription_role_arn": "",
+            "topic_arn": "arn:aws:sns:us-east-1:022784798454:cspm-security-alerts"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_sns_topic.security_alerts"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

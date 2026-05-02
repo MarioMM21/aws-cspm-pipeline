@@ -1,0 +1,5 @@
+aws_region     = "us-east-1"
+aws_account_id = "022784798454"
+email_address  = "Mmyles21@gmail.com"
+environment    = "cspm-lab"
+s3_bucket_name = "cspm-cloudtrail-logs-mm21"
